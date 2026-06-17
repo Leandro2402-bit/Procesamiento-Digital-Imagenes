@@ -97,6 +97,7 @@ Además, la aplicación está configurada de la siguiente manera:
 * **Entrada:** imagen (PIL), redimensionada a 300×300 px y normalizada con estadísticas de ImageNet
 * **Salida:** probabilidades por clase + interpretación clínica textual
 
+Todos estos archivos están subidos en la sección files de hugging face.
 ---
 
 ## 6. Limitaciones conocidas
