@@ -1,4 +1,4 @@
-# Clasificador de Lesiones Cutáneas (Melanoma / No-Melanoma / Benigno)
+# Clasificador de Lesiones Cutáneas
 
 Proyecto académico para la asignatura **Procesamiento Digital de Imágenes**. Sistema de clasificación de imágenes dermoscópicas en tres categorías clínicas, basado en transfer learning con EfficientNet-B3.
 
