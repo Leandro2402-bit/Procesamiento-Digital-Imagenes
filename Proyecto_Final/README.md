@@ -21,8 +21,8 @@ Este proyecto plantea un **sistema de apoyo al triaje visual**: un clasificador 
 | Campo | Detalle |
 |---|---|
 | **Nombre** | `melanoma-b2rp6` |
-| **Fuente** | [Roboflow Universe](https://universe.roboflow.com/shawn-f/melanoma-b2rp6) |
-| **Workspace / Proyecto** | `robox-b7rra` / `melanoma-b2rp6-oa0tf` (versión 1) |
+| **Fuente** | [Roboflow Universe](https://app.roboflow.com/robox-b7rra/melanoma-b2rp6-oa0tf/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true) |
+| **Workspace / Proyecto** | `robox-b7rra` / `melanoma-b2rp6-oa0tf` |
 | **Origen de las imágenes** | Dataset ISIC (International Skin Imaging Collaboration) |
 | **Licencia** | CC BY 4.0 |
 | **Tamaño total** | 9,358 imágenes |
@@ -72,15 +72,6 @@ dataset = version.download("folder")
 | **Función de pérdida** | `CrossEntropyLoss` | Estándar para clasificación multiclase con salida softmax |
 | **Hiperparámetros** | Batch size 32, LR Fase 1 = 1e-3, LR Fase 2 = 1e-4, weight decay = 1e-4 | Ver detalle completo en notebook |
 
-### Dos versiones de manejo de desbalance de clases
-
-| Versión | Estrategia | Accuracy test | F1 macro | AUC-ROC macro |
-|---|---|---|---|---|
-| **v1** | `CrossEntropyLoss` con `class_weights` | 91.2% | 91.6% | 98.3% |
-| **v2** | `WeightedRandomSampler` + augmentation reforzado, sin `class_weights` | 87.8% | 88.7% | 97.3% |
-
-La v1 obtiene métricas más altas, pero un análisis posterior reveló **shortcut learning**: dado que las 88 imágenes de test de `non-melanoma` provienen del mismo pool/origen que las de entrenamiento (al no existir esa clase en los splits originales de valid/test), el alto recall (98.9%) estaba parcialmente inflado por similitud de lote, no por generalización real. La v2 sacrifica algunas décimas de accuracy a cambio de un entrenamiento más robusto (el modelo ve la clase minoritaria con mayor frecuencia y variabilidad de augmentation por época), aunque el dataset reducido de esta clase (412 imágenes) sigue siendo una limitación de fondo.
-
 ### Métricas de rendimiento utilizadas
 
 - **Accuracy, Precision, Recall, F1-score (macro y por clase):** dado el desbalance de clases, el F1-macro y el recall por clase son más informativos que el accuracy global — en contexto clínico, el recall de la clase `malignant` es la métrica más crítica, porque un falso negativo (melanoma clasificado como benigno) tiene el mayor costo posible.
@@ -122,16 +113,11 @@ Ver documentación detallada en `executorch_export/README.md`.
 ## Estructura del repositorio
 
 ```
-melanoma-classifier/
+Proyecto_Final/
 ├── README.md
-├── notebooks/
-│   ├── 01_entrenamiento_v1.ipynb
-│   └── 02_entrenamiento_v2.ipynb
-├── huggingface_space/
-│   ├── app.py
-│   └── requirements.txt
-├── executorch_export/
-│   └── README.md
-└── docs/
-    └── graficas/
+├── melanoma_clasificacion.ipynb
+├── app.py
+├── requirements.txt
+├── model_config.json
+├── docs/
 ```
