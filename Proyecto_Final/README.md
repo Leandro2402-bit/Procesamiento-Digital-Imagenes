@@ -78,19 +78,22 @@ dataset = version.download("folder")
 - **AUC-ROC (One-vs-Rest):** mide la capacidad de separación del modelo independientemente del umbral de decisión, útil para verificar que el modelo discrimina bien entre clases incluso en la minoritaria.
 
 ---
-## 5. Despliegue en Hugging Face Spaces
+## 6. Despliegue en Hugging Face Spaces
 
-El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. los archivos que lo componen son los siguientes:
-- app.py
-- model_config.json
-- requirements.txt
-  
-Además, esta configurado de la siguiente manera:
+El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. Los archivos que lo componen son los siguientes:
 
-- **SDK:** Gradio
-- **Hardware:** CPU basic
-- **Entrada:** imagen (PIL), redimensionada a 300×300 px y normalizada con estadísticas de ImageNet
-- **Salida:** probabilidades por clase + interpretación clínica textual
+* **`app.py`**: contiene la lógica de la aplicación. Reconstruye la arquitectura de EfficientNet-B3 (idéntica a la del entrenamiento), carga los pesos entrenados, aplica el preprocesamiento a la imagen de entrada y genera la predicción junto con una interpretación clínica textual mostrada en la interfaz de Gradio.
+* 
+* **`melanoma_efficientnet_b3.pth`**: pesos del modelo ya entrenado (exportados desde Colab), cargados por `app.py` al iniciar el Space.
+* **`model_config.json`**: archivo de configuración con los metadatos necesarios para reconstruir el modelo correctamente: nombre de las clases, mapeo `class_to_idx`, tamaño de imagen esperado (`img_size`) y los valores de media/desviación estándar de ImageNet usados en la normalización.
+* **`requirements.txt`**: lista las dependencias de Python necesarias para que el Space funcione (versiones de `torch`, `torchvision` y `Pillow` compatibles con el entorno de Hugging Face).
+
+Además, está configurado de la siguiente manera:
+
+* **SDK:** Gradio
+* **Hardware:** CPU basic
+* **Entrada:** imagen (PIL), redimensionada a 300×300 px y normalizada con estadísticas de ImageNet
+* **Salida:** probabilidades por clase + interpretación clínica textual
 
 ---
 
