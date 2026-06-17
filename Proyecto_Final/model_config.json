@@ -1,0 +1,25 @@
+{
+  "arquitectura": "efficientnet_b3",
+  "num_classes": 3,
+  "clases": [
+    "benign",
+    "malignant",
+    "non-melanoma"
+  ],
+  "class_to_idx": {
+    "benign": 0,
+    "malignant": 1,
+    "non-melanoma": 2
+  },
+  "img_size": 300,
+  "imagenet_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "imagenet_std": [
+    0.229,
+    0.224,
+    0.225
+  ]
+}
