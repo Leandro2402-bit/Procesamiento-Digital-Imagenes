@@ -2,7 +2,7 @@
 
 Proyecto académico para la asignatura **Procesamiento Digital de Imágenes**. Sistema de clasificación de imágenes dermoscópicas en tres categorías clínicas, basado en transfer learning con EfficientNet-B3.
 
-**Demo en vivo:** [Hugging Face Space](https://huggingface.co/spaces/hpiarpuezan/melanoma-classifier/tree/main)
+**Demo en vivo:** [Hugging Face Space](https://huggingface.co/spaces/hpiarpuezan/melanoma-classifier)
 
 ---
 
