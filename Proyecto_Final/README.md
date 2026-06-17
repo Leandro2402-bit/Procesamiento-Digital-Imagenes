@@ -8,11 +8,11 @@ Proyecto académico para la asignatura **Procesamiento Digital de Imágenes**. S
 
 ## 1. Contexto del problema
 
-El diagnóstico temprano de melanoma es crítico: detectado a tiempo tiene tasas de supervivencia superiores al 90%, pero el diagnóstico tardío reduce drásticamente ese pronóstico. En la práctica clínica, dermatólogos deben priorizar qué lesiones requieren biopsia urgente entre un alto volumen de consultas.
+El diagnóstico temprano de melanoma es crítico. Si se detecta a tiempo tiene tasas de supervivencia altas pero un diagnóstico tardío reduce drásticamente ese pronóstico. En la práctica clínica, los dermatólogos deben priorizar qué lesiones requieren biopsia urgente entre un alto volumen de consultas.
 
-Este proyecto plantea un **sistema de apoyo al triaje visual**: un clasificador que, a partir de una imagen dermoscópica, distingue entre lesión benigna, melanoma maligno y otros cánceres de piel no-melanoma (carcinoma basocelular/espinocelular). La tarea de visión por computador empleada es **clasificación de imágenes** (no detección ni segmentación), ya que el objetivo es asignar una etiqueta global a la imagen completa de la lesión, previamente recortada/centrada por el propio proceso de adquisición dermoscópica.
+Este proyecto plantea un **sistema de apoyo visual**: un clasificador que, a partir de una imagen dermoscópica, distingue entre lesión benigna, melanoma maligno y otros cánceres de piel no-melanoma (carcinoma basocelular/espinocelular). La tarea de visión por computador empleada es **clasificación de imágenes** (no detección ni segmentación), ya que el objetivo es asignar una etiqueta global a la imagen completa de la lesión, previamente recortada/centrada por el propio proceso de adquisición dermoscópica.
 
-> ⚠️ Este sistema es una herramienta de apoyo académico. No reemplaza el diagnóstico de un dermatólogo certificado.
+> ⚠️ Este sistema es una herramienta de apoyo académico. No reemplaza el diagnóstico de un dermatólogo certificado en la materia.
 
 ---
 
@@ -20,9 +20,8 @@ Este proyecto plantea un **sistema de apoyo al triaje visual**: un clasificador 
 
 | Campo | Detalle |
 |---|---|
-| **Nombre** | `melanoma-b2rp6` |
+| **Nombre** | `melanoma` |
 | **Fuente** | [Roboflow Universe](https://app.roboflow.com/robox-b7rra/melanoma-b2rp6-oa0tf/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true) |
-| **Workspace / Proyecto** | `robox-b7rra` / `melanoma-b2rp6-oa0tf` |
 | **Origen de las imágenes** | Dataset ISIC (International Skin Imaging Collaboration) |
 | **Licencia** | CC BY 4.0 |
 | **Tamaño total** | 9,358 imágenes |
@@ -39,13 +38,13 @@ El dataset descargado desde Roboflow venía particionado 84% train / 12% valid /
 | Validación | 1,404 | 649 | 666 | 89 |
 | Test | 1,404 | 650 | 666 | 88 |
 
-**Desbalance de clases:** `non-melanoma` representa solo el 6.3% del dataset (412 vs. ~3,100 de las otras dos clases), un desbalance de 6.3×. Se manejó probando dos estrategias (ver sección 4).
+**Desbalance de clases:** `non-melanoma` representa solo el 6.3% del dataset (412 vs. ~3,100 de las otras dos clases), un desbalance alto.
 
 ### ⚠️ Importante para reproducir pruebas con imágenes nuevas
 
 Las imágenes de la **galería web** de Roboflow Universe (vista previa al navegar el dataset) son thumbnails comprimidos de aproximadamente 200×200 px, de menor calidad que las imágenes de **exportación** (640×640 px) usadas para entrenar el modelo. Esta diferencia de resolución provoca errores de clasificación al usarse como entrada del modelo desplegado.
 
-**Para probar el modelo correctamente:** descarga el dataset completo usando el botón **"Download Dataset"** de Roboflow (o el script de la sección 3), y usa imágenes de las carpetas `train/valid/test` resultantes — no imágenes guardadas por clic derecho desde la página de exploración del dataset.
+**Para probar el modelo correctamente:** se descarga el dataset completo usando el botón **"Download Dataset"** de Roboflow (o el script de la sección 3), y usa imágenes de las carpetas `train/valid/test` resultantes — no imágenes guardadas por clic derecho desde la página de exploración del dataset.
 
 ---
 
@@ -82,9 +81,9 @@ dataset = version.download("folder")
 ## 5. Despliegue en Hugging Face Spaces
 
 El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. los archivos que lo componen son los siguientes:
-- app.py:
+- app.py
 - model_config.json
-- requirements.txt.
+- requirements.txt
   
 Además, esta configurado de la siguiente manera:
 
@@ -98,7 +97,9 @@ Además, esta configurado de la siguiente manera:
 ## 6. Limitaciones conocidas
 
 - El tamaño reducido de la clase `non-melanoma` (412 imágenes) limita la capacidad de generalización del modelo a imágenes externas al dataset ISIC.
+
 - Las métricas de test pueden estar parcialmente infladas por similitud de origen entre las imágenes de entrenamiento y test de `non-melanoma`, dado que esta clase no existía en los splits originales de validación/test del dataset descargado.
+  
 - El modelo es sensible a la resolución/calidad de la imagen de entrada; imágenes de baja resolución (p. ej. thumbnails) pueden producir predicciones incorrectas.
 
 ---
