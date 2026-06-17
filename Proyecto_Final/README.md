@@ -81,13 +81,18 @@ dataset = version.download("folder")
 
 ## 5. Resultados (gráficas)
 
-Las gráficas de entrenamiento (loss y accuracy por época, ambas versiones) y la evaluación final (matriz de confusión, curvas ROC) se encuentran en `docs/` y en la sección final de cada notebook en `notebooks/`.
+Las gráficas de entrenamiento (loss y accuracy por época, ambas versiones) y la evaluación final (matriz de confusión, curvas ROC) se encuentran en `docs/` y en la sección final del cuaderno de colab.
 
 ---
 
 ## 6. Despliegue en Hugging Face Spaces
 
-El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. El código de la app y sus dependencias están en `huggingface_space/`.
+El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. los archivos que lo componen son los siguientes:
+- app.py:
+- model_config.json
+- requirements.txt.
+  
+Además, esta configurado de la siguiente manera:
 
 - **SDK:** Gradio
 - **Hardware:** CPU basic
