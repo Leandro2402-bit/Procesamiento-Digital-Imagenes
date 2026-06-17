@@ -79,14 +79,7 @@ dataset = version.download("folder")
 - **AUC-ROC (One-vs-Rest):** mide la capacidad de separación del modelo independientemente del umbral de decisión, útil para verificar que el modelo discrimina bien entre clases incluso en la minoritaria.
 
 ---
-
-## 5. Resultados (gráficas)
-
-Las gráficas de entrenamiento (loss y accuracy por época, ambas versiones) y la evaluación final (matriz de confusión, curvas ROC) se encuentran en `docs/` y en la sección final del cuaderno de colab.
-
----
-
-## 6. Despliegue en Hugging Face Spaces
+## 5. Despliegue en Hugging Face Spaces
 
 El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. los archivos que lo componen son los siguientes:
 - app.py:
@@ -102,13 +95,7 @@ Además, esta configurado de la siguiente manera:
 
 ---
 
-## 7. Exportación con ExecuTorch
-
-Ver documentación detallada en `executorch_export/README.md`.
-
----
-
-## 8. Limitaciones conocidas
+## 6. Limitaciones conocidas
 
 - El tamaño reducido de la clase `non-melanoma` (412 imágenes) limita la capacidad de generalización del modelo a imágenes externas al dataset ISIC.
 - Las métricas de test pueden estar parcialmente infladas por similitud de origen entre las imágenes de entrenamiento y test de `non-melanoma`, dado que esta clase no existía en los splits originales de validación/test del dataset descargado.
@@ -116,7 +103,7 @@ Ver documentación detallada en `executorch_export/README.md`.
 
 ---
 
-## Estructura del repositorio
+## 7. Estructura del repositorio
 
 ```
 Proyecto_Final/
