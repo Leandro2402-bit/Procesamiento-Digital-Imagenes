@@ -111,6 +111,5 @@ Proyecto_Final/
 ├── melanoma_clasificacion.ipynb
 ├── app.py
 ├── requirements.txt
-├── model_config.json
-├── docs/
+├── model_config.json/
 ```
