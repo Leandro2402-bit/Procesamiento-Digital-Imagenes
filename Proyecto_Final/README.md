@@ -75,6 +75,7 @@ dataset = version.download("folder")
 ### Métricas de rendimiento utilizadas
 
 - **Accuracy, Precision, Recall, F1-score (macro y por clase):** dado el desbalance de clases, el F1-macro y el recall por clase son más informativos que el accuracy global — en contexto clínico, el recall de la clase `malignant` es la métrica más crítica, porque un falso negativo (melanoma clasificado como benigno) tiene el mayor costo posible.
+
 - **AUC-ROC (One-vs-Rest):** mide la capacidad de separación del modelo independientemente del umbral de decisión, útil para verificar que el modelo discrimina bien entre clases incluso en la minoritaria.
 
 ---
