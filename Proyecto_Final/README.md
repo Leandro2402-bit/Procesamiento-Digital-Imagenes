@@ -90,7 +90,7 @@ El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. L
 
 * **`requirements.txt`**: lista las dependencias de Python necesarias para que el Space funcione (versiones de `torch`, `torchvision` y `Pillow` compatibles con el entorno de Hugging Face).
 
-Además, la aplicación está configurada de la siguiente manera:
+La aplicación está configurada de la siguiente manera:
 
 - **SDK:** Gradio
 - **Hardware:** CPU basic
