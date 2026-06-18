@@ -116,9 +116,11 @@ Además, tambien implemetamos un dashboard más interactivo y educativo donde se
 
 ```
 Proyecto_Final/
+├── Presentación proyecto Final.pptx
 ├── README.md
-├── melanoma_clasificacion.ipynb
 ├── app.py
-├── requirements.txt
-├── model_config.json/
+├── melanoma_clasificacion.ipynb
+├── model_config.json
+├── requirements.txt/
+
 ```
