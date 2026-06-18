@@ -97,7 +97,8 @@ Además, la aplicación está configurada de la siguiente manera:
 * **Entrada:** imagen (PIL), redimensionada a 300×300 px y normalizada con estadísticas de ImageNet
 * **Salida:** probabilidades por clase + interpretación clínica textual
 
-**Todos estos archivos están subidos en la sección files de hugging face**.
+Además, tambien implemetamos un dashboard más interactivo y educativo donde se explica a mayor profundidad lo que significa cada clase clinicamente, con ejemplos y el clasificador integrado en el siguiente link:
+[Dashboard](https://huggingface.co/spaces/hpiarpuezan/melanoma-app-educativa)
 ---
 
 ## 6. Limitaciones conocidas
