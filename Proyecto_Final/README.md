@@ -84,11 +84,13 @@ El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. L
 
 * **`app.py`**: contiene la lógica de la aplicación. Reconstruye la arquitectura de EfficientNet-B3 (idéntica a la del entrenamiento), carga los pesos entrenados, aplica el preprocesamiento a la imagen de entrada y genera la predicción junto con una interpretación clínica textual mostrada en la interfaz de Gradio.
 
-* **`melanoma_efficientnet_b3.pth`**: pesos del modelo ya entrenado (exportados desde Colab), cargados por `app.py` al iniciar el Space. (Este archivo no esta cargado aqui en github debido a que excede el limite de peso de 25 MB).
+* **`melanoma_efficientnet_b3.pth`**: pesos del modelo ya entrenado (exportados desde Colab en el archivo melanoma_clasificacion.ipynb), cargados por `app.py` al iniciar el Space. (Este archivo no esta cargado aqui en github debido a que excede el limite de peso de 25 MB).
 
 * **`model_config.json`**: archivo de configuración con los metadatos necesarios para reconstruir el modelo correctamente que son nombre de las clases, mapeo `class_to_idx`, tamaño de imagen esperado (`img_size`) y los valores de media/desviación estándar de ImageNet usados en la normalización.
 
 * **`requirements.txt`**: lista las dependencias de Python necesarias para que el Space funcione (versiones de `torch`, `torchvision` y `Pillow` compatibles con el entorno de Hugging Face).
+
+* **`melanoma_clasificacion.ipynb`**: Este es el archivo donde esta el codigo fuente del entrenamiento en google colab. 
 
 La aplicación está configurada de la siguiente manera:
 
