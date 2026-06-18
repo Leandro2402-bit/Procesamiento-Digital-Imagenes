@@ -92,10 +92,10 @@ El modelo está desplegado como una aplicación Gradio en Hugging Face Spaces. L
 
 Además, la aplicación está configurada de la siguiente manera:
 
-**SDK:** Gradio
-**Hardware:** CPU basic
-**Entrada:** imagen (PIL), redimensionada a 300×300 px y normalizada con estadísticas de ImageNet
-**Salida:** probabilidades por clase + interpretación clínica textual
+- **SDK:** Gradio
+- **Hardware:** CPU basic
+- **Entrada:** imagen (PIL), redimensionada a 300×300 px y normalizada con estadísticas de ImageNet
+- **Salida:** probabilidades por clase + interpretación clínica textual
 
 Además, tambien implemetamos un dashboard más interactivo y educativo donde se explica a mayor profundidad lo que significa cada clase clinicamente, con ejemplos y el clasificador integrado en el siguiente link:
 [Dashboard](https://huggingface.co/spaces/hpiarpuezan/melanoma-app-educativa)
